@@ -5,19 +5,7 @@ pipeline {
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemonxxx
     }
   }
-  stages {
-    stage('Debug Docker Access') {
-      steps {
-        sh '''
-        echo "### Current User ###"
-        whoami
-        echo "### User Groups ###"
-        groups
-        echo "### Docker Daemon Info ###"
-        docker info || echo "Docker daemon not accessible!"
-        '''
-      }
-    }
+  stages 
     stage('Checkout') {
       steps {
         sh 'echo passed'
